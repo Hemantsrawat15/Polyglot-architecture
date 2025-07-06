@@ -98,14 +98,15 @@ This is not a database, so there’s no schema — but we embed the same key in 
 ## Directory Structure (Microservice-style)
 ```
 satellite-data-ingestion/
+├── config.py              ← includes POSTGRESQL, MONGODB, MINIO dicts
 ├── db/
 │   ├── postgresql_client.py
 │   ├── mongodb_client.py
-│   └── minio_client.py
+│   └── minio_client.py    ← optional helper if you prefer
 ├── ingest/
 │   └── save_satellite_data.py
-├── config.py
-└── requirements.txt
+├── retrieve_satellite_data.py   ← now contains MinIO integration snippets
+└── requirements.txt       ← psycopg2, pymongo, minio
 ```
 
 ## config.py
